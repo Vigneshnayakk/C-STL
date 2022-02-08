@@ -1,4 +1,6 @@
 //testing set
+#ifndef MYLIB199811235
+#define MYLIB199811235
 #include<stdio.h>
 #include"marray.h"
 #define stack(a) darray(a)
@@ -20,26 +22,4 @@ void pop_val(d_intarray *t){
     }
 }
 
-int main(){
-    darray(a);
-    int n;
-    scanf("%d",&n);
-    for(n; n>=1; n--){
-        int v; 
-        scanf("%d",&v);
-        dinsert(a,v);
-    }
-    stack(b);
-    int m = 0;
-    push(b,a.p[0]);
-    for(int i = 1; i< a.count; i++){
-        m = retmax(m, a.p[i] - top(b));
-        if(a.p[i] < top(b)){
-            pop(b);
-            push(b,a.p[i]);
-        }
-    }
-    printf("%d ", m);
-    return 0;
-
-}
+#endif
