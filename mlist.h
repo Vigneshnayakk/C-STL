@@ -3,6 +3,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define list(a) head* a = linkedlist_init()
+#define insertAt(a,indx,k) linkedlist_insert(a, indx, k)
+#define deleteAt(a,indx) linkedlist_delete(a, indx)
+#define pushFront(a,k) push_front(a,k)
+#define pushBack(a,k) push_back(a,k)
+#define popFront(a) pop_front(a)
+#define popBack(a) pop_back(a)
 typedef struct node{
     int data;
     struct node* next;
@@ -111,7 +117,28 @@ void linkedlist_insert(head* a, int indx, int k){
     new->next = p;
     temp->next = new;
     new->prev = temp;  
+    a->length++;
 }
+
+void linkedlist_delete(head*a , int indx){
+    if((a->h) == NULL || indx > a->length) return;
+    if(indx == 0){
+        pop_front(a);
+        return;
+    }
+    if(indx == a->length - 1){
+        pop_back(a);
+        return;
+    }
+    linkedlist* p = a->h;
+    for(int i=0; i<indx; i++)
+        p= p->next;
+    linkedlist* temp = p->prev;
+    temp->next = p->next;
+    (p->next)->prev = temp;
+    free(p);
+}
+
 void display(head* a){
     linkedlist* p = (a->h);
     while(p != NULL){
