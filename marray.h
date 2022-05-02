@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include"mutility.h"
+#include"mutility.h" 
 
 //DYNAMIC ARRAY MACROS
 //#define dinsertc(a,v) d_charinsert(&a,v)
